@@ -1,5 +1,30 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
+import { Card, CardContent } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { Textarea } from "../../components/ui/textarea";
+
+const formFields = [
+  {
+    id: "email",
+    label: "Email:",
+    placeholder: "Digite seu E-mail aqui",
+    type: "email",
+  },
+  {
+    id: "password",
+    label: "Senha:",
+    placeholder: "Digite sua senha aqui",
+    type: "password",
+  },
+  {
+    id: "document",
+    label: "CNPJ/CPF:",
+    placeholder: "Digite seu CNPJ ou CPF aqui",
+    type: "text",
+  },
+];
 
 export const Frame = () => {
   return (
