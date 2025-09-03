@@ -1,0 +1,1 @@
+export { FrameProdutor } from "./FrameProdutor";
