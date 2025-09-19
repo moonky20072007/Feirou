@@ -4,6 +4,20 @@ const mysql = require('mysql2');
 const app = express();
 const port = 3000;
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: 'false'}));
+app.use(bodyParser.json());
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
+
+
+
+var cors = require('cors');
+app.use(express.static("public"));
+app.use(cors());
+
+app.use(express.json());	
+
 // Configuração da conexão com o MySQL
 const connection = mysql.createConnection({
   host: 'localhost',
