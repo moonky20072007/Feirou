@@ -195,6 +195,12 @@
     "whatwg-fetch": "^3.0.0",
     "ws": "^6.2.3",
     "yargs": "^17.6.2"
+    "expo-image-picker": "~16.1.4",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.11.1",
+    "axios": "*"
   },
   "codegenConfig": {
     "libraries": [
