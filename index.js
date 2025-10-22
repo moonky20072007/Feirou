@@ -1,315 +1,419 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
-AppRegistry.registerComponent('main', () => App);
+/**
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @flow strict-local
+ * @format
+ */
 
-const express = require('express');
-const mysql = require('mysql2');
+// flowlint unsafe-getters-setters:off
 
-const app = express();
-const port = 3000;
+'use strict';
+'use client';
 
+// ----------------------------------------------------------------------------
+// Runtime entry point for react-native.
+//
+// This module is separate from index.js.flow as it provides a more lenient
+// `module.exports` API at runtime, for lazy module loading and backwards
+// compatibility.
+//
+// IMPORTANT: Keep this file in sync with index.js.flow. Test your changes
+// whenever updating React Native's public API.
+// ----------------------------------------------------------------------------
 
-var cors = require('cors');
-app.use(express.static("public"));
-app.use(cors());
+import typeof * as ReactNativePublicAPI from './index.js.flow';
 
-app.use(express.json());
+const warnOnce = require('./Libraries/Utilities/warnOnce').default;
+const invariant = require('invariant');
 
-// Configuração da conexão com o MySQL
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'MaRiAgIuLiA17@',
-  database: 'feirou'
-});
+module.exports = {
+  // #region Components
+  get ActivityIndicator() {
+    return require('./Libraries/Components/ActivityIndicator/ActivityIndicator')
+      .default;
+  },
+  get Button() {
+    return require('./Libraries/Components/Button').default;
+  },
+  get DrawerLayoutAndroid() {
+    return require('./Libraries/Components/DrawerAndroid/DrawerLayoutAndroid')
+      .default;
+  },
+  get FlatList() {
+    return require('./Libraries/Lists/FlatList').default;
+  },
+  get Image() {
+    return require('./Libraries/Image/Image').default;
+  },
+  get ImageBackground() {
+    return require('./Libraries/Image/ImageBackground').default;
+  },
+  get InputAccessoryView() {
+    return require('./Libraries/Components/TextInput/InputAccessoryView')
+      .default;
+  },
+  get KeyboardAvoidingView() {
+    return require('./Libraries/Components/Keyboard/KeyboardAvoidingView')
+      .default;
+  },
+  get experimental_LayoutConformance() {
+    return require('./Libraries/Components/LayoutConformance/LayoutConformance')
+      .default;
+  },
+  get Modal() {
+    return require('./Libraries/Modal/Modal').default;
+  },
+  get Pressable() {
+    return require('./Libraries/Components/Pressable/Pressable').default;
+  },
+  get ProgressBarAndroid() {
+    warnOnce(
+      'progress-bar-android-moved',
+      'ProgressBarAndroid has been extracted from react-native core and will be removed in a future release. ' +
+        "It can now be installed and imported from '@react-native-community/progress-bar-android' instead of 'react-native'. " +
+        'See https://github.com/react-native-progress-view/progress-bar-android',
+    );
+    return require('./Libraries/Components/ProgressBarAndroid/ProgressBarAndroid')
+      .default;
+  },
+  get RefreshControl() {
+    return require('./Libraries/Components/RefreshControl/RefreshControl')
+      .default;
+  },
+  /**
+   * @deprecated SafeAreaView has been deprecated and will be removed in a future release.
+   * Please use 'react-native-safe-area-context' instead.
+   * See https://github.com/th3rdwave/react-native-safe-area-context
+   */
+  get SafeAreaView() {
+    warnOnce(
+      'safe-area-view-deprecated',
+      'SafeAreaView has been deprecated and will be removed in a future release. ' +
+        "Please use 'react-native-safe-area-context' instead. " +
+        'See https://github.com/th3rdwave/react-native-safe-area-context',
+    );
+    return require('./Libraries/Components/SafeAreaView/SafeAreaView').default;
+  },
+  get ScrollView() {
+    return require('./Libraries/Components/ScrollView/ScrollView').default;
+  },
+  get SectionList() {
+    return require('./Libraries/Lists/SectionList').default;
+  },
+  get StatusBar() {
+    return require('./Libraries/Components/StatusBar/StatusBar').default;
+  },
+  get Switch() {
+    return require('./Libraries/Components/Switch/Switch').default;
+  },
+  get Text() {
+    return require('./Libraries/Text/Text').default;
+  },
+  get unstable_TextAncestorContext() {
+    return require('./Libraries/Text/TextAncestorContext').default;
+  },
+  get TextInput() {
+    return require('./Libraries/Components/TextInput/TextInput').default;
+  },
+  get Touchable() {
+    return require('./Libraries/Components/Touchable/Touchable').default;
+  },
+  get TouchableHighlight() {
+    return require('./Libraries/Components/Touchable/TouchableHighlight')
+      .default;
+  },
+  get TouchableNativeFeedback() {
+    return require('./Libraries/Components/Touchable/TouchableNativeFeedback')
+      .default;
+  },
+  get TouchableOpacity() {
+    return require('./Libraries/Components/Touchable/TouchableOpacity').default;
+  },
+  get TouchableWithoutFeedback() {
+    return require('./Libraries/Components/Touchable/TouchableWithoutFeedback')
+      .default;
+  },
+  get View() {
+    return require('./Libraries/Components/View/View').default;
+  },
+  get VirtualizedList() {
+    return require('./Libraries/Lists/VirtualizedList').default;
+  },
+  get VirtualizedSectionList() {
+    return require('./Libraries/Lists/VirtualizedSectionList').default;
+  },
+  get unstable_VirtualView() {
+    return require('./src/private/components/virtualview/VirtualView').default;
+  },
+  // #endregion
+  // #region APIs
+  get AccessibilityInfo() {
+    return require('./Libraries/Components/AccessibilityInfo/AccessibilityInfo')
+      .default;
+  },
+  get ActionSheetIOS() {
+    return require('./Libraries/ActionSheetIOS/ActionSheetIOS').default;
+  },
+  get Alert() {
+    return require('./Libraries/Alert/Alert').default;
+  },
+  // Include any types exported in the Animated module together with its default export, so
+  // you can references types such as Animated.Numeric
+  get Animated() {
+    return require('./Libraries/Animated/Animated').default;
+  },
+  get Appearance() {
+    return require('./Libraries/Utilities/Appearance');
+  },
+  get AppRegistry() {
+    return require('./Libraries/ReactNative/AppRegistry').AppRegistry;
+  },
+  get AppState() {
+    return require('./Libraries/AppState/AppState').default;
+  },
+  get BackHandler() {
+    return require('./Libraries/Utilities/BackHandler').default;
+  },
+  get Clipboard() {
+    warnOnce(
+      'clipboard-moved',
+      'Clipboard has been extracted from react-native core and will be removed in a future release. ' +
+        "It can now be installed and imported from '@react-native-clipboard/clipboard' instead of 'react-native'. " +
+        'See https://github.com/react-native-clipboard/clipboard',
+    );
+    return require('./Libraries/Components/Clipboard/Clipboard').default;
+  },
+  get codegenNativeCommands() {
+    return require('./Libraries/Utilities/codegenNativeCommands').default;
+  },
+  get codegenNativeComponent() {
+    return require('./Libraries/Utilities/codegenNativeComponent').default;
+  },
+  get DeviceEventEmitter() {
+    return require('./Libraries/EventEmitter/RCTDeviceEventEmitter').default;
+  },
+  get DeviceInfo() {
+    return require('./Libraries/Utilities/DeviceInfo').default;
+  },
+  get DevMenu() {
+    return require('./src/private/devsupport/devmenu/DevMenu').default;
+  },
+  get DevSettings() {
+    return require('./Libraries/Utilities/DevSettings').default;
+  },
+  get Dimensions() {
+    return require('./Libraries/Utilities/Dimensions').default;
+  },
+  get DynamicColorIOS() {
+    return require('./Libraries/StyleSheet/PlatformColorValueTypesIOS')
+      .DynamicColorIOS;
+  },
+  get Easing() {
+    return require('./Libraries/Animated/Easing').default;
+  },
+  get findNodeHandle() {
+    return require('./Libraries/ReactNative/RendererProxy').findNodeHandle;
+  },
+  get I18nManager() {
+    return require('./Libraries/ReactNative/I18nManager').default;
+  },
+  /**
+   * @deprecated
+   */
+  get InteractionManager() {
+    return require('./Libraries/Interaction/InteractionManager').default;
+  },
+  get Keyboard() {
+    return require('./Libraries/Components/Keyboard/Keyboard').default;
+  },
+  get LayoutAnimation() {
+    return require('./Libraries/LayoutAnimation/LayoutAnimation').default;
+  },
+  get Linking() {
+    return require('./Libraries/Linking/Linking').default;
+  },
+  get LogBox() {
+    return require('./Libraries/LogBox/LogBox').default;
+  },
+  get NativeAppEventEmitter() {
+    return require('./Libraries/EventEmitter/RCTNativeAppEventEmitter').default;
+  },
+  get NativeDialogManagerAndroid() {
+    return require('./Libraries/NativeModules/specs/NativeDialogManagerAndroid')
+      .default;
+  },
+  get NativeEventEmitter() {
+    return require('./Libraries/EventEmitter/NativeEventEmitter').default;
+  },
+  get NativeModules() {
+    return require('./Libraries/BatchedBridge/NativeModules').default;
+  },
+  get Networking() {
+    return require('./Libraries/Network/RCTNetworking').default;
+  },
+  get PanResponder() {
+    return require('./Libraries/Interaction/PanResponder').default;
+  },
+  get PermissionsAndroid() {
+    return require('./Libraries/PermissionsAndroid/PermissionsAndroid').default;
+  },
+  get PixelRatio() {
+    return require('./Libraries/Utilities/PixelRatio').default;
+  },
+  get Platform() {
+    return require('./Libraries/Utilities/Platform').default;
+  },
+  get PlatformColor() {
+    return require('./Libraries/StyleSheet/PlatformColorValueTypes')
+      .PlatformColor;
+  },
+  get PushNotificationIOS() {
+    warnOnce(
+      'pushNotificationIOS-moved',
+      'PushNotificationIOS has been extracted from react-native core and will be removed in a future release. ' +
+        "It can now be installed and imported from '@react-native-community/push-notification-ios' instead of 'react-native'. " +
+        'See https://github.com/react-native-push-notification/ios',
+    );
+    return require('./Libraries/PushNotificationIOS/PushNotificationIOS')
+      .default;
+  },
+  get processColor() {
+    return require('./Libraries/StyleSheet/processColor').default;
+  },
+  get registerCallableModule() {
+    return require('./Libraries/Core/registerCallableModule').default;
+  },
+  get requireNativeComponent() {
+    return require('./Libraries/ReactNative/requireNativeComponent').default;
+  },
+  get RootTagContext() {
+    return require('./Libraries/ReactNative/RootTag').RootTagContext;
+  },
+  get Settings() {
+    return require('./Libraries/Settings/Settings').default;
+  },
+  get Share() {
+    return require('./Libraries/Share/Share').default;
+  },
+  get StyleSheet() {
+    return require('./Libraries/StyleSheet/StyleSheet').default;
+  },
+  get Systrace() {
+    return require('./Libraries/Performance/Systrace');
+  },
+  get ToastAndroid() {
+    return require('./Libraries/Components/ToastAndroid/ToastAndroid').default;
+  },
+  get TurboModuleRegistry() {
+    return require('./Libraries/TurboModule/TurboModuleRegistry');
+  },
+  get UIManager() {
+    return require('./Libraries/ReactNative/UIManager').default;
+  },
+  get unstable_batchedUpdates() {
+    return require('./Libraries/ReactNative/RendererProxy')
+      .unstable_batchedUpdates;
+  },
+  get useAnimatedValue() {
+    return require('./Libraries/Animated/useAnimatedValue').default;
+  },
+  get useColorScheme() {
+    return require('./Libraries/Utilities/useColorScheme').default;
+  },
+  get useWindowDimensions() {
+    return require('./Libraries/Utilities/useWindowDimensions').default;
+  },
+  get UTFSequence() {
+    return require('./Libraries/UTFSequence').default;
+  },
+  get Vibration() {
+    return require('./Libraries/Vibration/Vibration').default;
+  },
+  get VirtualViewMode() {
+    return require('./src/private/components/virtualview/VirtualView')
+      .VirtualViewMode;
+  },
+  // #endregion
+} as ReactNativePublicAPI;
 
-// Conectando ao banco (FUNCIONANDO)
-connection.connect((err) => {
-  if (err) {
-    console.error('Erro ao conectar no MySQL:', err.message);
-    process.exit(1); // encerra o app se não conseguir conectar
-  } else {
-    console.log('Conectado ao MySQL!');
-  }
-});
-
-app.get('/', (req, res) => {
-  res.send('Servidor Node.js com Express e MySQL está funcionando!');
-});
-
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
-});
-
-// Rota GET para listar todos os consumidores (FUNCIONANDO)
-app.get('/consumidor', (req, res) => {
-  const sql = 'SELECT * FROM consumidor';
-  connection.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar os consumidores:', err);
-      res.status(500).json({ erro: 'Erro ao buscar os consumidores' });
-    } else {
-      res.json(results);
-    }
+if (__DEV__) {
+  /* $FlowFixMe[prop-missing] This is intentional: Flow will error when
+   * attempting to access AsyncStorage. */
+  /* $FlowFixMe[invalid-export] This is intentional: Flow will error when
+   * attempting to access AsyncStorage. */
+  Object.defineProperty(module.exports, 'AsyncStorage', {
+    configurable: true,
+    get() {
+      invariant(
+        false,
+        'AsyncStorage has been removed from react-native core. ' +
+          "It can now be installed and imported from '@react-native-async-storage/async-storage' instead of 'react-native'. " +
+          'See https://github.com/react-native-async-storage/async-storage',
+      );
+    },
   });
-});
-
-// Rota POST para inserir dados dos consumidores (FUNCIONANDO)
-app.post('/consumidor', (req, res) => {
-  const { id_consumidor, nome_usuario, email, senha, telefone, quantidade_seguindo } = req.query;
-  const sql = 'INSERT INTO consumidor (id_consumidor, nome_usuario, email, senha, telefone, quantidade_seguindo) VALUES (?, ?, ?, ?, ?, ?)';
-  connection.query(sql, [nome_usuario, email, senha, telefone, quantidade_seguindo ], (err, results) => {
-    if (err) {
-      console.error('Erro ao adicionar consumidor:', err);
-      res.status(500).json({ erro: 'Erro ao adicionar consumidor' });
-    } else {
-      res.status(201).json({ id: results.insertId, nome_usuario, email, senha, telefone, quantidade_seguindo });
-    }
+  /* $FlowFixMe[prop-missing] This is intentional: Flow will error when
+   * attempting to access ImagePickerIOS. */
+  /* $FlowFixMe[invalid-export] This is intentional: Flow will error when
+   * attempting to access ImagePickerIOS. */
+  Object.defineProperty(module.exports, 'ImagePickerIOS', {
+    configurable: true,
+    get() {
+      invariant(
+        false,
+        'ImagePickerIOS has been removed from React Native. ' +
+          "Please upgrade to use either 'react-native-image-picker' or 'expo-image-picker'. " +
+          "If you cannot upgrade to a different library, please install the deprecated '@react-native-community/image-picker-ios' package. " +
+          'See https://github.com/rnc-archive/react-native-image-picker-ios',
+      );
+    },
   });
-});
-
-// Rota PUT para alterar os dados dos consumidores (FUNCIONANDO)
-app.put('/consumidor/:id', (req, res) => {
-  const { id } = req.query;
-  const { nome_usuario, email, senha, telefone, quantidade_seguindo } = req.query;
-  const sql = 'UPDATE consumidor SET nome_usuario = ?, email = ?, senha = ?, telefone = ?, quantidade_seguindo = ? WHERE id_consumidor = ?';
-  connection.query(sql, [nome_usuario, email, senha, telefone, quantidade_seguindo, id], (err, results) => {
-    if (err) {
-      console.error('Erro ao atualizar cliente:', err);
-      res.status(500).json({ erro: 'Erro ao atualizar o consumidor' });
-    } else {
-      res.json({ mensagem: 'Consumidor atualizado com sucesso' });
-    }
+  /* $FlowFixMe[prop-missing] This is intentional: Flow will error when
+   * attempting to access ProgressViewIOS. */
+  /* $FlowFixMe[invalid-export] This is intentional: Flow will error when
+   * attempting to access ProgressViewIOS. */
+  Object.defineProperty(module.exports, 'ProgressViewIOS', {
+    configurable: true,
+    get() {
+      invariant(
+        false,
+        'ProgressViewIOS has been removed from react-native core. ' +
+          "It can now be installed and imported from '@react-native-community/progress-view' instead of 'react-native'. " +
+          'See https://github.com/react-native-progress-view/progress-view',
+      );
+    },
   });
-});
-
-// Rota POST para inserir dados dos produtores (FUNCIONANDO)
-app.post('/produtor', (req, res) => {
-  const { id_produtor, nome_usuario, email, senha, CPF_CNPJ, telefone, quantidade_seguindo, quantidade_seguidores, quantidade_posts, descricao_perfil } = req.query;
-  console.log('Dados recebidos:', id_produtor, nome_usuario, email, senha);
-  const sql = 'INSERT INTO produtor (id_produtor, nome_usuario, email, senha, CPF_CNPJ, telefone, quantidade_seguindo, quantidade_seguidores, quantidade_posts, descricao_perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  connection.query(sql, [id_produtor, nome_usuario, email, senha, CPF_CNPJ, telefone, quantidade_seguindo, quantidade_seguidores, quantidade_posts, descricao_perfil], (err, results) => {
-    if (err) {
-      console.error('Erro ao adicionar produtor:', err);
-      res.status(500).json({ erro: 'Erro ao adicionar produtor' });
-    } else {
-      res.status(201).json({ id: results.insertId, nome_usuario, email, senha, CPF_CNPJ, telefone, quantidade_seguindo, quantidade_seguidores, quantidade_posts, descricao_perfil });
-    }
+  /* $FlowFixMe[prop-missing] This is intentional: Flow will error when
+   * attempting to access DatePickerIOS. */
+  /* $FlowFixMe[invalid-export] This is intentional: Flow will error when
+   * attempting to access DatePickerIOS. */
+  Object.defineProperty(module.exports, 'DatePickerIOS', {
+    configurable: true,
+    get() {
+      invariant(
+        false,
+        'DatePickerIOS has been removed from react-native core. ' +
+          "It can now be installed and imported from '@react-native-community/datetimepicker' instead of 'react-native'. " +
+          'See https://github.com/react-native-datetimepicker/datetimepicker',
+      );
+    },
   });
-});
-
-// Rota PUT para alterar os dados dos produtores (FUNCIONANDO)
-app.put('/produtor/:id', (req, res) => {
-  const { id } = req.params;
-  const { nome_usuario, email, telefone, descricao_perfil } = req.query;
-  const sql = 'UPDATE produtor SET nome_usuario = ?, email = ?, telefone = ?, descricao_perfil = ? WHERE id_produtor = ?';
-  connection.query(sql, [nome_usuario, email, telefone, descricao_perfil, id], (err, results) => {
-    if (err) {
-      console.error('Erro ao atualizar produtor:', err);
-      res.status(500).json({ erro: 'Erro ao atualizar o produtor' });
-    } else {
-      res.json({ mensagem: 'Produtor atualizado com sucesso' });
-    }
+  /* $FlowFixMe[prop-missing] This is intentional: Flow will error when
+   * attempting to access Slider. */
+  /* $FlowFixMe[invalid-export] This is intentional: Flow will error when
+   * attempting to access Slider. */
+  Object.defineProperty(module.exports, 'Slider', {
+    configurable: true,
+    get() {
+      invariant(
+        false,
+        'Slider has been removed from react-native core. ' +
+          "It can now be installed and imported from '@react-native-community/slider' instead of 'react-native'. " +
+          'See https://github.com/callstack/react-native-slider',
+      );
+    },
   });
-});
-
-// Rota GET para mostrar na tela os dados de um usuario consumidor especifico (FUNCIONANDO)
-
-app.get('/consumidor/:id', (req, res) => {
-  const {id} = req.params;
-  const sql = 'SELECT id_consumidor, nome_usuario, quantidade_seguindo, telefone from consumidor where id_consumidor = ?';
-
-  connection.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar usuário:', err);
-      return res.status(500).json({ error: 'Erro interno do servidor.' });
-    }
-    if (results.length === 0) {
-      return res.status(404).json({ message: 'Usuário não encontrado.' });
-    }
-
-    res.json(results);
-  });
-});
-
-// Rota GET para mostrar na tela os dados de um usuario produtor especifico (FUNCIONANDO)
-app.get('/produtor/:id', (req, res) => {
-  const {id} = req.params;
-  const sql = 'SELECT id_produtor, nome_usuario, telefone, descricao_perfil from produtor where id_produtor = ?';
-
-  connection.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar usuário:', err);
-      return res.status(500).json({ error: 'Erro interno do servidor.' });
-    }
-    if (results.length === 0) {
-      return res.status(404).json({ message: 'Usuário não encontrado.' });
-    }
-
-    res.json(results);
-  });
-});
-
-// Rota GET para listar todos os produtores (FUNCIONANDO)
-app.get('/produtor', (req, res) => {
-  const sql = 'SELECT * FROM produtor';
-  connection.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar os produtores:', err);
-      res.status(500).json({ erro: 'Erro ao buscar os produtores' });
-    } else {
-      res.json(results);
-    }
-  });
-});
-
-// Rota DELETE para deletar um consumidor (FUNCIONANDO)
-app.delete('/consumidor/:id', (req, res) => {
-  const { id } = req.params;
-  const sql = 'DELETE FROM consumidor WHERE id_consumidor = ?';
-  connection.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Erro ao deletar consumidor:', err);
-      res.status(500).json({ erro: 'Erro ao deletar consumidor' });
-    } else {
-      res.json({ mensagem: 'Consumidor deletado com sucesso' });
-    }
-  });
-});
-
-
-// Rota DELETE para deletar um produtor (FUNCIONANDO)
-app.delete('/produtor/:id', (req, res) => {
-  const { id } = req.params;
-  const sql = 'DELETE FROM produtor WHERE id_produtor = ?';
-  connection.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Erro ao deletar produtor:', err);
-      res.status(500).json({ erro: 'Erro ao deletar produtor' });
-    } else {
-      res.json({ mensagem: 'Produtor deletado com sucesso' });
-    }
-  });
-});
-
-
-// Rota POST para adicionar um produto
-app.post('/produto', (req, res) => {
-  const { id_produto, nome_produto, tipo_produto } = req.body;
-  const sql = 'INSERT INTO produto (id_produto, nome_produto, tipo_produto) VALUES (?, ?, ?)';
-  connection.query(sql, [id_produto, nome_produto, tipo_produto], (err, results) => {
-    if (err) {
-      console.error('Erro ao adicionar produto:', err);
-      res.status(500).json({ erro: 'Erro ao adicionar produto' });
-    } else {
-      res.status(201).json({ id: results.insertId, id_produto, nome_produto, tipo_produto });
-    }
-  });
-});
-
-// Rota PUT para alterar os dados dos produtos
-app.put('/produto/:id', (req, res) => {
-  const { id } = req.params;
-  const { nome_produto, tipo_produto } = req.body;
-  const sql = 'UPDATE produto SET nome_produto = ?, tipo_produto = ? WHERE id_produto = ?';
-  connection.query(sql, [nome_produto, tipo_produto, id], (err, results) => {
-    if (err) {
-      console.error('Erro ao atualizar produto:', err);
-      res.status(500).json({ erro: 'Erro ao atualizar o produto' });
-    } else {
-      res.json({ mensagem: 'Produto atualizado com sucesso' });
-    }
-  });
-});
-
-
-// Rota GET para listar todos os produtos (FUNCIONANDO)
-app.get('/produto', (req, res) => {
-  const sql = 'SELECT * FROM produto';
-  connection.query(sql, (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar os produtos:', err);
-      res.status(500).json({ erro: 'Erro ao buscar os produtos' });
-    } else {
-      res.json(results);
-    }
-  });
-});
-
-
-
-// Rota GET para mostrar na tela os dados de um produto especifico (FUNCIONANDO)
-
-app.get('/produto/:id', (req, res) => {
-  const {id} = req.params;
-  const sql = 'SELECT id_produto, nome_produto, tipo_produto from produto WHERE id_produto = ?';
-
-  connection.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar produto:', err);
-      return res.status(500).json({ error: 'Erro interno do servidor.' });
-    }
-    if (results.length === 0) {
-      return res.status(404).json({ message: 'Produto não encontrado.' });
-    }
-
-    res.json(results);
-  });
-}); 
-
-// Rota DELETE para deletar um produto (FUNCIONANDO)
-app.delete('/produto/:id', (req, res) => {
-  const { id } = req.params;
-  const sql = 'DELETE FROM produto WHERE id_produto = ?';
-  connection.query(sql, [id], (err, results) => {
-    if (err) {
-      console.error('Erro ao deletar produto:', err);
-      res.status(500).json({ erro: 'Erro ao deletar produto' });
-    } else {
-      res.json({ mensagem: 'Produto deletado com sucesso' });
-    }
-  });
-});
-
-// Rota para login
-app.post('/login', (req, res) => {
-  const { email, senha } = req.query;
-  
-  const sqlConsumidor = 'SELECT * FROM consumidor WHERE email = ? AND senha = ?';
-  const sqlProdutor = 'SELECT * FROM produtor WHERE email = ? AND senha = ?';
-
-  connection.query(sqlConsumidor, [email, senha], (err, results) => {
-    if (err) {
-      console.error('Erro ao buscar consumidor:', err);
-      return res.status(500).json({ error: 'Erro interno do servidor.' });
-    }
-    if (results.length > 0) {
-      return res.json({ tipo: 'consumidor', usuario: results[0] });
-    } else {
-      connection.query(sqlProdutor, [email, senha], (err, results) => {
-        if (err) {
-          console.error('Erro ao buscar produtor:', err);
-          return res.status(500).json({ error: 'Erro interno do servidor.' });
-        }
-        if (results.length > 0) {
-          return res.json({ tipo: 'produtor', usuario: results[0] });
-        } else {
-          return res.status(401).json({ message: 'Credenciais inválidas.' });
-        }
-      });
-    }
-  });
-});
-
-// Rota para logout
-app.post('/logout', (req, res) => {
-  // Aqui você pode adicionar lógica para invalidar tokens ou sessões, se necessário
-  res.json({ message: 'Logout realizado com sucesso.' });
-}); 
-
-
-
-// Inicia o servidor
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
-});
+}
