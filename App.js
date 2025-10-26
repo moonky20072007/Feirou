@@ -7,10 +7,11 @@ import TelaCadastroConsumidor from './TelaCadastroConsumidor';
 import configuracoesConsumidor from './configuracoesConsumidor';
 import configuracoesProdutor from './configuracoesProdutor';
 
+// Mostrando mudança
 const Stack = createNativeStackNavigator();
 
 function App() {
-    return ( 
+    return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName='Inicio'>
                 <Stack.Screen 
