@@ -194,7 +194,7 @@
     "stacktrace-parser": "^0.1.10",
     "whatwg-fetch": "^3.0.0",
     "ws": "^6.2.3",
-    "yargs": "^17.6.2"
+    "yargs": "^17.6.2",
     "expo-image-picker": "~16.1.4",
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
