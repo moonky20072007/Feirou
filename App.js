@@ -10,7 +10,7 @@ import configuracoesProdutor from './configuracoesProdutor';
 const Stack = createNativeStackNavigator();
 
 function App() {
-    return (
+    return ( 
         <NavigationContainer>
             <Stack.Navigator initialRouteName='Inicio'>
                 <Stack.Screen 
