@@ -41,10 +41,9 @@
             align-items: center;
         }
 
-        .logo::before {
-            content: "C:\Users\helen\Downloads\logo-removebg-preview.png";
-            margin-right: 0.5rem;
-            font-size: 2rem;
+        .logo-img {
+            height: 50px;
+            width: auto;
         }
 
         .nav-links {
@@ -144,13 +143,19 @@
             .hero h1 {
                 font-size: 2rem;
             }
+            
+            .logo-img {
+                height: 40px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="https://github.com/moonky20072007/Feirou/blob/main/logo-removebg-preview.png" class="logo-img">
+            </div>
             <div class="nav-links">
                 <a href="#sobre">Sobre</a>
                 <a href="#funcionalidades">Funcionalidades</a>
@@ -172,7 +177,7 @@
         </div>
         <div class="feature-card">
             <h3>🤝 Conexão Direta</h3>
-            <p>Comunique-se com os feirantes e conheça a origem dos seus alimentos.</p>
+            <p>Comunique-se  com os feirantes e conheça a origem dos seus alimentos.</p>
         </div>
         <div class="feature-card">
             <h3>🌱 Sustentabilidade</h3>
@@ -181,7 +186,7 @@
     </section>
 
     <footer class="footer">
-        <p>&copy; 2025 Feirou! - Todos os direitos reservados</p>
+        <p>&copy; 2024 Feirou! - Todos os direitos reservados</p>
         <p>Contato: feirou@cefet.com | (32) 3449-2321</p>
     </footer>
 </body>
