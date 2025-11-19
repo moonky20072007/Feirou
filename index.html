@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">
     <title>Feirou! - Conectando Produtores e Consumidores</title>
+    <link rel="icon" href="logo-removebg-preview.png" type="image/png">
+    
     <style>
         * {
             margin: 0;
@@ -20,6 +23,7 @@
 
         .header {
             background: linear-gradient(135deg, #2e7d32, #4caf50);
+            font-family: 'Rozha One', serif;
             color: white;
             padding: 1rem 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -41,9 +45,10 @@
             align-items: center;
         }
 
-        .logo-img {
-            height: 50px;
-            width: auto;
+        .logo::before {
+            content: "🥕";
+            margin-right: 0.5rem;
+            font-size: 2rem;
         }
 
         .nav-links {
@@ -143,19 +148,13 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            
-            .logo-img {
-                height: 40px;
-            }
         }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="nav">
-            <div class="logo">
-                <img src="https://github.com/moonky20072007/Feirou/blob/main/logo-removebg-preview.png" class="logo-img">
-            </div>
+            <div class="logo">Feirou!</div>
             <div class="nav-links">
                 <a href="#sobre">Sobre</a>
                 <a href="#funcionalidades">Funcionalidades</a>
@@ -177,7 +176,7 @@
         </div>
         <div class="feature-card">
             <h3>🤝 Conexão Direta</h3>
-            <p>Comunique-se  com os feirantes e conheça a origem dos seus alimentos.</p>
+            <p>Comunique-se com os feirantes e conheça a origem dos seus alimentos.</p>
         </div>
         <div class="feature-card">
             <h3>🌱 Sustentabilidade</h3>
@@ -186,7 +185,7 @@
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 Feirou! - Todos os direitos reservados</p>
+       <p>&copy; 2025 Feirou! - Todos os direitos reservados</p>
         <p>Contato: feirou@cefet.com | (32) 3449-2321</p>
     </footer>
 </body>
